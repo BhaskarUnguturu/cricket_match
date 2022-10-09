@@ -1,0 +1,49 @@
+<mat-form-field class="example-full-width" align="center">
+    <div class="button">
+        <input matInput placeholder="Search By Type(listA,t20,Twenty20,First-class,T20I)" [(ngModel)]="getSearchedText">
+
+
+    </div>
+</mat-form-field>
+
+
+
+
+<div>
+    <div *ngFor="let res of newMatchRes | newMatchFilter: getSearchedText |   paginate: { itemsPerPage: count, currentPage: p }">
+
+        <!-- <div *ngIf="res!=null"> -->
+        <div class="upcoming_match">
+            <div class="left">
+
+                Match:
+                <h6 class="ng-binding">{{ res['team-1'] }}<small>  (VS)  </small> {{ res['team-2'] }} </h6>
+                <h1></h1>
+                Type:
+                <h5> {{res.type}}</h5>
+
+                <h1></h1>
+                Date:
+                <h5> {{ res.dateTimeGMT }} </h5>
+
+            </div>
+
+
+
+            <div class="right">
+
+                <button class="btn btn-secondary" type="submit" (click)="recommend(res)">Recommend</button>
+
+            </div>
+
+        </div>
+
+        <!-- <div *ngIf="res==null">
+
+            <p>NOT FOUND</p>
+        </div> -->
+
+
+    </div>
+    <pagination-controls (pageChange)="p =$event"></pagination-controls>
+</div>

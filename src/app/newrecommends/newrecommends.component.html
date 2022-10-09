@@ -1,0 +1,22 @@
+<div>
+    <div class="upcoming_match" *ngFor="let res of notes | newMatchFilter: getSearchedText |  paginate: { itemsPerPage: count, currentPage: p } ">
+        <div class="left1">
+            <h6 class="ng-binding">{{ res['team-1'] }}<small>  (VS)  </small> {{ res['team-2'] }} </h6>
+            <div class="left2">
+                <h5>{{res.type}}</h5>
+                <h5> {{ res.date }} </h5>
+
+            </div>
+        </div>
+
+        <div class="right">
+            <!--<mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>-->
+            <button class="btn btn-secondary" type="submit" (click)="recommend(res)">UnRecommend</button>
+
+        </div>
+
+    </div>
+</div>
+<div class="text-center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

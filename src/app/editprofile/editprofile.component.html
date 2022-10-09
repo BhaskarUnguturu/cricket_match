@@ -1,0 +1,68 @@
+<div class="video-container">
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" preload="auto">
+            <source src="https://storage.googleapis.com/coverr-main/mp4/Audience.mp4" type="video/mp4">
+          </video>
+
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <a routerLink="/dashboard" routerLinkActive="active" class="close-icon "></a>
+                    <h5 class="card-title text-center">My Profile</h5>
+
+                    <div class="container">
+                        <div class="row profile">
+                            <!-- SIDEBAR USERPIC -->
+                            <div class="container" align="center">
+                                <div *ngIf="imageToDisplay">
+                                    <img src="data:image/jpeg;base64,{{imageToDisplay.imagePic}}" class="img-circle" alt="Responsive Image" width="200" height="200" border-radius="10"> </div>
+
+                            </div>
+                            <div>
+                                <form [formGroup]="updatePictureForm" (submit)="updatePicture()" enctype="multipart/form-data">
+                                    <input type="file" formControlName="imageUpdated" (change)="onFileSelect($event)">
+
+                                </form>
+                            </div>
+                            <hr>
+                            <!-- END SIDEBAR USERPIC -->
+                            <!-- SIDEBAR USER TITLE -->
+                            <div style="margin-top: 20px;">
+                                <div>
+                                    User-Name:<input type="text" value="{{ userName }}" disabled>
+                                </div>
+                                <div *ngIf="updatePasswordFeild && !oldpasswordchecked">
+                                    <form [formGroup]="checkOldPasswordForm" (submit)="checkPassword()">
+                                        <div>
+                                            Old Password:<input type="password" formControlName="oldpassword">
+                                        </div>
+                                        <input type="submit">
+                                    </form>
+                                </div>
+                                <div *ngIf="updatePasswordFeild && oldpasswordchecked">
+                                    <form [formGroup]="updatePasswordForm" (submit)="changePassword()">
+                                        <div>
+                                            New Password : <input type="password" formControlName="updatepassword">
+                                        </div>
+                                        <div>
+                                            <input type="submit">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div *ngIf="!updatePasswordFeild ">
+                                    <a style="cursor: pointer;" (click)="updatePassword()">Update Password?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

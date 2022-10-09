@@ -1,0 +1,19 @@
+<div>
+    <div class="row">
+        <div class="old_match" *ngFor="let res of oldMatchRes | paginate: { itemsPerPage: count, currentPage: p } ">
+            <div class="left1">
+                <h6>{{res.title}}</h6>
+                <br>
+                <!--<h5>{{res.description}}</h5>-->
+            </div>
+            <div class="right">
+
+                <button class="btn btn-secondary" type="submit" (click)="recommend(res)">Recommend</button>
+            </div>
+
+        </div>
+
+
+        <div class="text-center">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>

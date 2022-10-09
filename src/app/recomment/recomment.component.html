@@ -1,0 +1,20 @@
+<div class="recommend">
+
+    <div class="old_match" *ngFor="let n of notes| paginate: { itemsPerPage: count, currentPage: p }  ">
+        <div class="left1">
+            <h6>{{n.title}}</h6>
+            <h1></h1>
+            <br>
+            <!-- <h5>{{n.description}}</h5>
+            <h5>{{n.unique_id}}</h5>-->
+        </div>
+        <div class="right">
+
+            <button class="btn btn-secondary" type="submit" (click)="recommend(n)">UnRecommend</button>
+        </div>
+
+    </div>
+</div>
+<div class="text-center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

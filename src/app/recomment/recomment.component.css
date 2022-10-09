@@ -1,0 +1,50 @@
+.old_match {
+    background: lightseagreen;
+    box-shadow: -4px 6px 7px lightseagreen(0, 0, 0, 1);
+    padding: 0;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-left: 9%;
+    margin-top: 5%;
+}
+
+.left1 {
+    padding: 22px 30px;
+    align-items: center;
+}
+
+h5 {
+    color: white;
+    font-size: 16px;
+    font-weight: 100;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+h6 {
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.right {
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    background-color: darkslategray;
+}
+
+.example-icon {
+    color: red;
+    padding: 22px 30px;
+    align-items: center;
+}
+
+button {
+    color: blue;
+}
